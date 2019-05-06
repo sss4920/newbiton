@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, intial-scale=1">
+    <title>대여 페이지</title>
+    <h1><p class="text-center">메인대여 페이지</p></h1>
+    <link rel="stylesheet" type = "text/css" href="home.css">
+</head>
+
+<body>
+    
+    <table class = "table">
+            
+        <thead>
+           
+            <tr>
+                
+                <th>번호</th>
+                <th>제목</th>
+            
+             
+             
+                
+                <!-- <th>작성자</th>
+                <th>날짜</th>
+                <th>조회수</th> -->
+            </tr>
+            
+        </thead>
+        <tbody>
+            <tr>
+                    {% for data in post.all %}
+                <td>
+                    <th>{{ data.id }}</th>
+                    <th><a href="{% url 'content' data.id%}">{{ data.title }}</a></th>
+                       <!--  {{ data.content}} -->
+                </td>
+            </tr>
+        </tbody>
+        {% endfor %}
+    </table>
+
+</body>
+
+
+
+<!--
+    
+
+-->
+
+<a href="{% url 'postcreate' %}"><button type="button" class="btn btn-default"><p class="text-center">새글쓰기</p></button></a>
+<br>
+<a href = "{% url 'home' %}"><button type="button" class="btn btn-default"><p class="text-center">메인으로 돌아가기</p></button></a>
+</html>
